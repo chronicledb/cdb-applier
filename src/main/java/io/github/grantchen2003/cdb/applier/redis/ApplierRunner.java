@@ -1,28 +1,29 @@
 package io.github.grantchen2003.cdb.applier.redis;
 
-import io.github.grantchen2003.cdb.applier.redis.chronicleconsumer.ChronicleConsumer;
+import io.github.grantchen2003.cdb.applier.redis.chronicle.ChronicleSubscriber;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ApplierRedisRunner implements ApplicationRunner {
+public class ApplierRunner implements ApplicationRunner {
 
-    private final ChronicleConsumer chronicleConsumer;
+    private final Applier applier;
+    private final ChronicleSubscriber chronicleSubscriber;
     private final String chronicleId;
 
-    public ApplierRedisRunner(
-            ChronicleConsumer chronicleConsumer,
+    public ApplierRunner(
+            Applier applier,
+            ChronicleSubscriber chronicleSubscriber,
             @Value("${cdb.chronicle.chronicle-id}") String chronicleId) {
-        this.chronicleConsumer = chronicleConsumer;
+        this.applier = applier;
+        this.chronicleSubscriber = chronicleSubscriber;
         this.chronicleId = chronicleId;
     }
 
     @Override
     public void run(ApplicationArguments args) {
-        chronicleConsumer.consumeFromBeginning(chronicleId, (offset, message) -> {
-            System.out.println("offset=" + offset + " message=" + message);
-        });
+        chronicleSubscriber.subscribeFromStart(chronicleId, applier);
     }
 }
