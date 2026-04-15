@@ -1,4 +1,4 @@
-package io.github.grantchen2003.cdb.applier.redis.model;
+package io.github.grantchen2003.cdb.applier.model;
 
 public record Operation(
         OpType opType,

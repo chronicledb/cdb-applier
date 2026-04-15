@@ -1,7 +1,7 @@
-package io.github.grantchen2003.cdb.applier.redis;
+package io.github.grantchen2003.cdb.applier;
 
-import io.github.grantchen2003.cdb.applier.redis.chronicle.ChronicleSubscriber;
-import io.github.grantchen2003.cdb.applier.redis.model.Transaction;
+import io.github.grantchen2003.cdb.applier.chronicle.ChronicleSubscriber;
+import io.github.grantchen2003.cdb.applier.model.Transaction;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;

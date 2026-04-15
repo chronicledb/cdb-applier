@@ -1,6 +1,6 @@
-package io.github.grantchen2003.cdb.applier.redis;
+package io.github.grantchen2003.cdb.applier;
 
-import io.github.grantchen2003.cdb.applier.redis.chronicle.ChronicleSubscriber;
+import io.github.grantchen2003.cdb.applier.chronicle.ChronicleSubscriber;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

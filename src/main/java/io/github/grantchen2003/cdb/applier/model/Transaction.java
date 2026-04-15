@@ -1,4 +1,4 @@
-package io.github.grantchen2003.cdb.applier.redis.model;
+package io.github.grantchen2003.cdb.applier.model;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

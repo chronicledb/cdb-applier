@@ -1,6 +1,6 @@
-package io.github.grantchen2003.cdb.applier.redis.chronicle;
+package io.github.grantchen2003.cdb.applier.chronicle;
 
-import io.github.grantchen2003.cdb.applier.redis.model.Transaction;
+import io.github.grantchen2003.cdb.applier.model.Transaction;
 
 import java.util.function.Consumer;
 

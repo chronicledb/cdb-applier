@@ -1,7 +1,7 @@
-package io.github.grantchen2003.cdb.applier.redis.chronicle;
+package io.github.grantchen2003.cdb.applier.chronicle;
 
-import io.github.grantchen2003.cdb.applier.redis.model.Operation;
-import io.github.grantchen2003.cdb.applier.redis.model.Transaction;
+import io.github.grantchen2003.cdb.applier.model.Operation;
+import io.github.grantchen2003.cdb.applier.model.Transaction;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.listener.ContainerProperties;
 import org.springframework.kafka.listener.KafkaMessageListenerContainer;

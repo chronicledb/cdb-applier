@@ -1,4 +1,4 @@
-package io.github.grantchen2003.cdb.applier.redis.config;
+package io.github.grantchen2003.cdb.applier.config;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;

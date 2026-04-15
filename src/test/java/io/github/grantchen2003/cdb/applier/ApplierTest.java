@@ -1,7 +1,7 @@
-package io.github.grantchen2003.cdb.applier.redis;
+package io.github.grantchen2003.cdb.applier;
 
-import io.github.grantchen2003.cdb.applier.redis.model.Operation;
-import io.github.grantchen2003.cdb.applier.redis.model.Transaction;
+import io.github.grantchen2003.cdb.applier.model.Operation;
+import io.github.grantchen2003.cdb.applier.model.Transaction;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThatCode;
 
 class ApplierTest {
 
-    private final Applier applier = new Applier();
+    private final Applier applier = new RedisApplier();
 
     @Test
     void applier_implementsConsumerOfTransaction() {

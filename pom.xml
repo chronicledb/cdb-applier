@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>io.github.grantchen2003</groupId>
-    <artifactId>cdb-applier-redis</artifactId>
+    <artifactId>cdb-applier</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>

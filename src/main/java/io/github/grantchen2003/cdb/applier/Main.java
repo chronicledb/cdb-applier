@@ -1,4 +1,4 @@
-package io.github.grantchen2003.cdb.applier.redis;
+package io.github.grantchen2003.cdb.applier;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
