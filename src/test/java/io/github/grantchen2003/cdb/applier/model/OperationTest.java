@@ -8,17 +8,17 @@ class OperationTest {
 
     @Test
     void record_storesAllFields() {
-        Operation op = new Operation(Operation.OpType.SET, "orders", "{\"id\":7}");
+        Operation op = new Operation(Operation.OpType.PUT, "orders", "{\"id\":7}");
 
-        assertThat(op.opType()).isEqualTo(Operation.OpType.SET);
+        assertThat(op.opType()).isEqualTo(Operation.OpType.PUT);
         assertThat(op.table()).isEqualTo("orders");
         assertThat(op.data()).isEqualTo("{\"id\":7}");
     }
 
     @Test
-    void opType_hasSetAndDeleteVariants() {
+    void opType_hasPutAndDeleteVariants() {
         assertThat(Operation.OpType.values())
-                .containsExactlyInAnyOrder(Operation.OpType.SET, Operation.OpType.DELETE);
+                .containsExactlyInAnyOrder(Operation.OpType.PUT, Operation.OpType.DELETE);
     }
 
     @Test

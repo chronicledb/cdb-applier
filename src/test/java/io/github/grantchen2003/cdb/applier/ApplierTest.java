@@ -22,7 +22,7 @@ class ApplierTest {
     @Test
     void accept_doesNotThrow() {
         Transaction tx = new Transaction(1L, List.of(
-                new Operation(Operation.OpType.SET, "users", "{\"id\":1}")
+                new Operation(Operation.OpType.PUT, "users", "{\"id\":1}")
         ));
 
         assertThatCode(() -> applier.accept(tx)).doesNotThrowAnyException();

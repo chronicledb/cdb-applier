@@ -13,7 +13,7 @@ class TransactionTest {
     void deserializeOperations_validJson_returnsOperations() {
         String json = """
             [
-              {"opType":"SET",    "table":"users",    "data":"{\\"id\\":1}"},
+              {"opType":"PUT",    "table":"users",    "data":"{\\"id\\":1}"},
               {"opType":"DELETE", "table":"sessions", "data":"{\\"id\\":9}"}
             ]
             """;
@@ -22,7 +22,7 @@ class TransactionTest {
 
         assertThat(ops).hasSize(2);
 
-        assertThat(ops.get(0).opType()).isEqualTo(Operation.OpType.SET);
+        assertThat(ops.get(0).opType()).isEqualTo(Operation.OpType.PUT);
         assertThat(ops.get(0).table()).isEqualTo("users");
         assertThat(ops.get(0).data()).isEqualTo("{\"id\":1}");
 
@@ -46,7 +46,7 @@ class TransactionTest {
 
     @Test
     void constructor_storesFieldsCorrectly() {
-        List<Operation> ops = List.of(new Operation(Operation.OpType.SET, "t", "d"));
+        List<Operation> ops = List.of(new Operation(Operation.OpType.PUT, "t", "d"));
         Transaction tx = new Transaction(42L, ops);
 
         assertThat(tx.seqNum()).isEqualTo(42L);
