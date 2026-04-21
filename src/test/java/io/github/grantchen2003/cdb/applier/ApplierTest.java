@@ -88,7 +88,7 @@ class ApplierTest {
         when(writeSchemaService.getPrimaryKeyValue("accounts", "{\"id\":\"alice\"}")).thenReturn("alice");
         when(writeSchemaService.getPrimaryKeyValue("accounts", "{\"id\":\"bob\"}")).thenReturn("bob");
 
-        Transaction tx = new Transaction(2L, List.of(
+        final Transaction tx = new Transaction(2L, List.of(
                 new Operation(Operation.OpType.PUT,    "accounts", "{\"id\":\"alice\"}"),
                 new Operation(Operation.OpType.DELETE, "accounts", "{\"id\":\"bob\"}")
         ));
@@ -100,7 +100,7 @@ class ApplierTest {
 
     @Test
     void accept_emptyOperations_doesNotThrow() {
-        Transaction tx = new Transaction(3L, List.of());
+        final Transaction tx = new Transaction(3L, List.of());
         assertThatCode(() -> applier.accept(tx)).doesNotThrowAnyException();
         verifyNoInteractions(hashOperations);
     }
