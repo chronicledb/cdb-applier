@@ -28,6 +28,7 @@ public class RedisApplier implements Applier {
             @Override
             public List<Object> execute(RedisOperations operations) throws DataAccessException {
                 operations.multi();
+                operations.opsForHash().increment("metadata", "seq_num", 1);
                 for (final Operation op : tx.operations()) {
                     final String table = op.table();
                     final String primaryKey = writeSchemaService.getPrimaryKeyValue(op.table(), op.data());

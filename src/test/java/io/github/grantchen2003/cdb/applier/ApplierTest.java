@@ -69,6 +69,7 @@ class ApplierTest {
 
         assertThatCode(() -> applier.accept(tx)).doesNotThrowAnyException();
         verify(hashOperations).put("accounts", "alice", "{\"id\":\"alice\"}");
+        verify(hashOperations).increment("metadata", "seq_num", 1);
     }
 
     @Test
@@ -81,6 +82,7 @@ class ApplierTest {
 
         assertThatCode(() -> applier.accept(tx)).doesNotThrowAnyException();
         verify(hashOperations).delete("accounts", "alice");
+        verify(hashOperations).increment("metadata", "seq_num", 1);
     }
 
     @Test
@@ -96,12 +98,13 @@ class ApplierTest {
         assertThatCode(() -> applier.accept(tx)).doesNotThrowAnyException();
         verify(hashOperations).put("accounts", "alice", "{\"id\":\"alice\"}");
         verify(hashOperations).delete("accounts", "bob");
+        verify(hashOperations).increment("metadata", "seq_num", 1);
     }
 
     @Test
     void accept_emptyOperations_doesNotThrow() {
         final Transaction tx = new Transaction(3L, List.of());
         assertThatCode(() -> applier.accept(tx)).doesNotThrowAnyException();
-        verifyNoInteractions(hashOperations);
+        verify(hashOperations).increment("metadata", "seq_num", 1);
     }
 }
